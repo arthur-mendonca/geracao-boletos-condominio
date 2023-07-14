@@ -12,6 +12,7 @@ app.use(express.json())
 app.use("/boleto",boletosRoutes)
 app.use("/lote",lotesRoutes)
 
+
 app.use(handleErrors)
 
 export default app
