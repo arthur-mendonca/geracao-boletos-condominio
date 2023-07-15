@@ -9,7 +9,7 @@ const app: Application = express()
 
 app.use(express.json())
 
-app.use("/boleto",boletosRoutes)
+app.use("/boletos",boletosRoutes)
 app.use("/lote",lotesRoutes)
 
 

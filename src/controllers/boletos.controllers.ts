@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import getCSVData from "../services/boleto/getCSVData.service";
 import getPDFData from "../services/boleto/getPDFdata.service";
+import getAllBoletos from "../services/boleto/getAllBoletos.service";
 
 const getCSVDataController = async (request: Request, response: Response):Promise<Response> => {
 
@@ -12,7 +13,11 @@ const getPDFDataController = async (request: Request, response: Response):Promis
     return response.status(200).json(await getPDFData());
 }
 
+const getAllBoletosController = async (request: Request, response: Response):Promise<Response> => {
+    return response.status(200).json(await getAllBoletos());
+}
 
-export { getCSVDataController, getPDFDataController};
+
+export { getCSVDataController, getPDFDataController, getAllBoletosController};
 
 
