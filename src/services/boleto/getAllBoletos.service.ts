@@ -16,6 +16,7 @@ const fonts = {
     }
 }
 
+//carregar as fontes para criar o arquivo PDF
 const printer = new PdfPrinter(fonts);
 
 const getAllBoletos = async (params: IQueryParams): Promise<IBoleto[] | undefined> => {
@@ -50,7 +51,10 @@ const getAllBoletos = async (params: IQueryParams): Promise<IBoleto[] | undefine
                         }
                     ]
                 };
+                //local de saída do arquivo criado
                 const pdfPath = path.join(__dirname, `../../../relatorio.pdf`);
+                //garante que o arquivo de relatório substitua uma arquivo de PDF eventualmente pré-existente;
+                //na ausência desse trecho, se o usuário fizer duas requisições seguidas o código quebra;
                 if (fs.existsSync(pdfPath)) {
                     fs.unlinkSync(pdfPath);
                 }

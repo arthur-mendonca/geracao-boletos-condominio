@@ -10,9 +10,10 @@ import { TDocumentDefinitions } from 'pdfmake/interfaces';
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
+//indica o local do arquivo pdf de onde vão ser extraídas as informações
 const pdfLocalPath = path.join(__dirname, '../../../boletos.pdf');
 
-const getPDFData = async () => {
+const getPDFData = async ():Promise<void> => {
     const boletoRepo = AppDataSource.getRepository(Boleto)
 
     const dataBuffer = fs.readFileSync(pdfLocalPath);
@@ -24,6 +25,7 @@ const getPDFData = async () => {
             bolditalics: 'Helvetica-BoldOblique'
         }
     }
+    //carrega as fontes para a criação do PDF
     const printer = new PdfPrinter(fonts);
 
     const parsedPDF = await PdfParse(dataBuffer).then( async data => {
@@ -36,16 +38,19 @@ const getPDFData = async () => {
                     if(boleto.nome_sacado.includes(name)){
                         const docDefinition:TDocumentDefinitions = {
                             defaultStyle:{
+                                //definições de estilo do PDF
                                 fontSize:12,
                                 font: "Helvetica"
                             },
                             content:[
+                                //cada 'text' é uma linha do PDF
                                 {text: `Nome: ${boleto.nome_sacado}`},
                                 {text: `Valor: ${boleto.valor}`},
                                 {text: `Linha digitável: ${boleto.linha_digitavel}`}
                             ]
                         };
                         const pdfDoc = printer.createPdfKitDocument(docDefinition);
+                        //indica o local de saída do arquivo criado bem como o nome do PDF
                         pdfDoc.pipe(fs.createWriteStream(path.join(__dirname, `../../../${boleto.id}.pdf`)));
                         pdfDoc.end();
                     }}

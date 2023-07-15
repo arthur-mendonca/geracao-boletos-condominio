@@ -1,5 +1,4 @@
 import { Lote } from "../entities/lotes.entities";
-import { MoreThanOrEqual, LessThanOrEqual, Between} from "typeorm";
 
 
 export interface IBoleto {

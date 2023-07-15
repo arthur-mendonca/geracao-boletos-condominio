@@ -1,0 +1,142 @@
+_type: export
+__export_format: 4
+__export_date: 2023-07-15T21:51:28.622Z
+__export_source: insomnia.desktop.app:v2023.4.0
+resources:
+  - _id: req_654a8bca0dab4fde9a03f1093de4a2ce
+    parentId: wrk_81ba88c3b03c44279b664a719f7d503d
+    modified: 1689437135737
+    created: 1689425499284
+    url: http://localhost:3000/boletos
+    name: Listar todos boletos
+    description: ""
+    method: GET
+    body: {}
+    parameters:
+      - id: pair_c997c8c8face48789ff72f92b5f20dd9
+        name: valor_inicial
+        value: "178"
+        description: ""
+        disabled: true
+      - id: pair_3a80a25f39b743b29282adc16499fca0
+        name: valor_final
+        value: "200"
+        description: ""
+        disabled: true
+      - id: pair_37f4d71726b24235bed65e97e5764b15
+        name: relatorio
+        value: "1"
+        description: ""
+        disabled: false
+      - id: pair_79eb442889c74a0d8697b658be3eb031
+        name: nome
+        value: JOSE DA SILVA
+        description: ""
+        disabled: true
+    headers: []
+    authentication: {}
+    metaSortKey: -1689425499285
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: wrk_81ba88c3b03c44279b664a719f7d503d
+    parentId: null
+    modified: 1689285037814
+    created: 1689285037814
+    name: My Collection
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_3bb1067b2ba548bb9cfb1143bb706d5d
+    parentId: wrk_81ba88c3b03c44279b664a719f7d503d
+    modified: 1689457671681
+    created: 1689367839713
+    url: localhost:3000/boletos/pdf
+    name: extrair dados do PDF e criar arquivo PDF
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1689367839714
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_fec7ada95b8b4cc9884975afd2af4aec
+    parentId: wrk_81ba88c3b03c44279b664a719f7d503d
+    modified: 1689425458962
+    created: 1689364148273
+    url: localhost:3000/boletos/csv
+    name: extrair dados do CSV
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1689364148273
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_463874efa6404021bcd893a882f11b2d
+    parentId: wrk_81ba88c3b03c44279b664a719f7d503d
+    modified: 1689367829276
+    created: 1689285235714
+    url: localhost:3000/lote
+    name: criar lote
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"nome": "nome do lote"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1689285235714
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_0536ef3cb7cad89fb92a54168d9fa8c9bb16cb92
+    parentId: wrk_81ba88c3b03c44279b664a719f7d503d
+    modified: 1689285037817
+    created: 1689285037817
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1689285037817
+    _type: environment
+  - _id: jar_0536ef3cb7cad89fb92a54168d9fa8c9bb16cb92
+    parentId: wrk_81ba88c3b03c44279b664a719f7d503d
+    modified: 1689285037820
+    created: 1689285037820
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
