@@ -17,6 +17,7 @@ export interface IQueryParams {
     valor_inicial?: string;
     valor_final?: string;
     id_lote?: string;
+    relatorio?: number;
   }
 
 export interface IWhereCondition {
@@ -26,3 +27,12 @@ export interface IWhereCondition {
       id: number;
     };
   }
+
+
+export interface ITableBody {
+  id: number;
+  nome_sacado: string,
+  valor: string,
+  linha_digitavel: string
+  lote: number;
+}
