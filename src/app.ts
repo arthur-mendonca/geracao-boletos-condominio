@@ -3,7 +3,7 @@ import express, {Application} from "express"
 import boletosRoutes from "./routes/boletos.routes"
 import lotesRoutes from "./routes/lotes.routes"
 import { handleErrors } from "./errors"
-
+require("express-async-errors")
 
 const app: Application = express()
 
